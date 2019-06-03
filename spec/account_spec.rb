@@ -11,7 +11,7 @@ describe Account do
     it 'has a new statement' do
       statement = Statement.new
       account = Account.new(statement)
-      expect(account.statement).to eq "date || credit || debit || balance"
+      expect(account.statement).to eq []
     end
   end
 

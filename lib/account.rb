@@ -10,10 +10,12 @@ class Account
 
   def deposit(amount)
     @balance += amount
+    update(amount, nil)
   end
 
   def withdraw(amount)
     @balance -= amount
+    update(nil, amount)
   end
 
   def balance
@@ -21,6 +23,13 @@ class Account
   end
 
   def statement
-    "date || credit || debit || balance"
+    @statement.all
+  end
+
+  private
+
+  def update(credit, debit)
+    transaction = Transaction.new(credit, debit, @balance)
+    @statement.all << transaction
   end
 end
