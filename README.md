@@ -23,6 +23,6 @@ date || credit || debit || balance
 13/01/2012 || 2000.00 || || 3000.00
 10/01/2012 || 1000.00 || || 1000.00
 ```
-### Model
+## Model
 
 <img src="./images/bank-tech-test-model.jpg">
