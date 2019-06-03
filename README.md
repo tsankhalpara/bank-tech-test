@@ -25,4 +25,4 @@ date || credit || debit || balance
 ```
 ### Model
 
-![model](bank-tech-test-model.jpg)
+<img src="./images/bank-tech-test-model.jpg">
