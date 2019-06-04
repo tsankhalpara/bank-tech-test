@@ -34,4 +34,13 @@ describe Account do
     end
   end
 
+  # describe '#print' do
+  #   it 'prints the statement' do
+  #     statement = Statement.new
+  #     account = Account.new(statement)
+  #     account.deposit(1000)
+  #     expect(account.print).to include(1000)
+  #   end
+  # end
+
 end

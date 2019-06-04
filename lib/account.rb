@@ -10,12 +10,12 @@ class Account
 
   def deposit(amount)
     @balance += amount
-    update(amount, nil)
+    update(amount, 0)
   end
 
   def withdraw(amount)
     @balance -= amount
-    update(nil, amount)
+    update(0, amount)
   end
 
   def balance
@@ -24,6 +24,34 @@ class Account
 
   def statement
     @statement.all
+  end
+
+  def transactions
+    @transactions
+  end
+
+  def print
+    puts 'date || credit || debit || balance'
+    @statement.all.each do |transaction|
+      if transaction.credit == 0
+      result = transaction.date.strftime('%d/%m/%Y') + ' || '
+      result += '  || '
+      result += transaction.debit.to_f.to_s
+      result += ' || ' + transaction.balance.to_f.to_s
+    elsif transaction.debit == 0
+      result = transaction.date.strftime('%d/%m/%Y') + ' || '
+      result += transaction.credit.to_f.to_s
+      result += ' || '
+      result += '  || ' + transaction.balance.to_f.to_s
+    else
+      result = transaction.date.strftime('%d/%m/%Y') + ' || '
+      result += transaction.credit.to_f.to_s
+      result += ' || '
+      result += transaction.debit.to_f.to_s
+      result += ' || ' + transaction.balance.to_f.to_s
+    end
+      puts result
+    end
   end
 
   private
