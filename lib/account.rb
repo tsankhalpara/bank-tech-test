@@ -25,7 +25,7 @@ class Account
 
   def print
     puts 'date || credit || debit || balance'
-    @statement.all.each do |transaction|
+    @statement.all.reverse.each do |transaction|
       date = transaction.date.strftime('%d/%m/%Y')
       result = date + ' || '
       if transaction.credit.zero?

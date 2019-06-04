@@ -26,3 +26,7 @@ date || credit || debit || balance
 ## Model
 
 <img src="./images/bank-tech-test-model.jpg">
+
+## IRB
+
+<img src="./images/irb-screenshot.jpg">
