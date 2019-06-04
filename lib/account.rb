@@ -33,23 +33,19 @@ class Account
   def print
     puts 'date || credit || debit || balance'
     @statement.all.each do |transaction|
+      result = transaction.date.strftime('%d/%m/%Y') + ' || '
       if transaction.credit == 0
-      result = transaction.date.strftime('%d/%m/%Y') + ' || '
-      result += '  || '
-      result += transaction.debit.to_f.to_s
+        result += '  || '
+        result += transaction.debit.to_f.to_s
+      elsif transaction.debit == 0
+        result += transaction.credit.to_f.to_s
+        result += ' ||  '
+      else
+        result += transaction.credit.to_f.to_s
+        result += ' || '
+        result += transaction.debit.to_f.to_s
+      end
       result += ' || ' + transaction.balance.to_f.to_s
-    elsif transaction.debit == 0
-      result = transaction.date.strftime('%d/%m/%Y') + ' || '
-      result += transaction.credit.to_f.to_s
-      result += ' || '
-      result += '  || ' + transaction.balance.to_f.to_s
-    else
-      result = transaction.date.strftime('%d/%m/%Y') + ' || '
-      result += transaction.credit.to_f.to_s
-      result += ' || '
-      result += transaction.debit.to_f.to_s
-      result += ' || ' + transaction.balance.to_f.to_s
-    end
       puts result
     end
   end
