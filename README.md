@@ -36,9 +36,15 @@ bundle install
 rspec
 ```
 
-## Model
+## Approach
+
+### Model
 
 <img src="./images/bank-tech-test-model.jpg">
+
+### Structure
+
+After modelling the test I created files and corresponding test files for each class as modelled. Once these were completed and had the functionality required, the last step was to display the statement in the format required.
 
 ## IRB
 
