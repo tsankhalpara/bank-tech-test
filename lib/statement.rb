@@ -1,9 +1,7 @@
 class Statement
-
   attr_accessor :all
 
-  def initialize()
+  def initialize
     @all = []
   end
-
 end

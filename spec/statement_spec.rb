@@ -1,7 +1,6 @@
 require 'statement'
 
 describe Statement do
-
   describe '#initialize' do
     it 'starts off empty' do
       statement = Statement.new

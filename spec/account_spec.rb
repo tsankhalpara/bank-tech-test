@@ -1,7 +1,6 @@
 require 'account'
 
 describe Account do
-
   describe '#initialize' do
     it 'starts with a balance of zero' do
       statement = Statement.new
@@ -33,14 +32,4 @@ describe Account do
       expect(account.balance).to eq 5
     end
   end
-
-  # describe '#print' do
-  #   it 'prints the statement' do
-  #     statement = Statement.new
-  #     account = Account.new(statement)
-  #     account.deposit(1000)
-  #     expect(account.print).to include(1000)
-  #   end
-  # end
-
 end
