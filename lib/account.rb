@@ -29,10 +29,6 @@ class Account
     balance
   end
 
-  def statement
-    @statement.all
-  end
-
   def print
     puts 'date || credit || debit || balance'
     @statement.all.reverse.each do |transaction|
