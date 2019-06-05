@@ -10,13 +10,23 @@ class Account
   end
 
   def deposit(amount)
-    @balance += amount
-    update(amount, 0)
+    if amount < 0
+      raise "Cannot deposit negative amount - please use withdraw service"
+    else
+      @balance += amount
+      update(amount, 0)
+    end
+    balance
   end
 
   def withdraw(amount)
-    @balance -= amount
-    update(0, amount)
+    if amount > @balance
+      raise "Not enough funds available"
+    else
+      @balance -= amount
+      update(0, amount)
+    end
+    balance
   end
 
   def statement
@@ -29,12 +39,9 @@ class Account
       date = transaction.date.strftime('%d/%m/%Y')
       result = date + ' || '
       if transaction.credit.zero?
-        result += '  || ' + transaction.debit.to_f.to_s
-      elsif transaction.debit.zero?
-        result += transaction.credit.to_f.to_s + ' ||  '
+        result += ' || ' + transaction.debit.to_f.to_s
       else
-        result += transaction.credit.to_f.to_s + ' || ' +
-        transaction.debit.to_f.to_s
+        result += transaction.credit.to_f.to_s + ' || '
       end
       result += ' || ' + transaction.balance.to_f.to_s
       puts result
