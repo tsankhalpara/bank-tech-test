@@ -35,11 +35,11 @@ class Account
       date = transaction.date.strftime('%d/%m/%Y')
       result = date + ' || '
       if transaction.credit.zero?
-        result += ' || ' + transaction.debit.to_f.to_s
+        result += ' || ' + ('%.2f' % transaction.debit.to_f).to_s
       else
-        result += transaction.credit.to_f.to_s + ' || '
+        result += ('%.2f' % transaction.credit.to_f).to_s + ' || '
       end
-      result += ' || ' + transaction.balance.to_f.to_s
+      result += ' || ' + ('%.2f' % transaction.balance.to_f).to_s
       puts result
     end
   end

@@ -1,4 +1,5 @@
 require 'account'
+require 'timecop'
 
 describe Account do
   describe '#initialize' do
@@ -39,10 +40,21 @@ describe Account do
   end
 
   describe '#print' do
-    it 'prints statement' do
+    it 'prints statement header' do
       statement = Statement.new
       account = Account.new(statement)
       expect {account.print}.to output("date || credit || debit || balance\n").to_stdout
+    end
+    it 'prints statement with two transactions' do
+      Timecop.freeze(2019, 05, 01) do
+      statement = Statement.new
+      account = Account.new(statement)
+      account.deposit(10)
+      account.withdraw(5)
+      expect {account.print}.to output("date || credit || debit || balance
+01/05/2019 ||  || 5.00 || 5.00
+01/05/2019 || 10.00 ||  || 10.00\n").to_stdout
+      end
     end
   end
 end
