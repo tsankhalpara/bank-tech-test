@@ -61,8 +61,8 @@ After modelling the test I created files and corresponding test files for each c
  => [#<Transaction:0x00007f9f1f9996a0 @date=2019-06-04 14:02:16 +0100, @credit=1000, @debit=0, @balance=1000>, #<Transaction:0x00007f9f1f9a13a0 @date=2019-06-04 14:02:21 +0100, @credit=2000, @debit=0, @balance=3000>, #<Transaction:0x00007f9f1f9a8ce0 @date=2019-06-04 14:02:42 +0100, @credit=0, @debit=500, @balance=2500>]
 2.6.0 :006 > account.print
 date || credit || debit || balance
-04/06/2019 ||   || 500.0 || 2500.0
-04/06/2019 || 2000.0 ||   || 3000.0
-04/06/2019 || 1000.0 ||   || 1000.0
+04/06/2019 ||   || 500.00 || 2500.00
+04/06/2019 || 2000.00 ||   || 3000.00
+04/06/2019 || 1000.00 ||   || 1000.00
 2.6.0 :007 > exit
 ```
